@@ -1,9 +1,14 @@
-name: Laravel Test
+name: phpunit
 
 on:
   pull_request:
     paths:
+      - 'config/**'
+      - 'database/**'
+      - 'resources/**'
+      - 'src/**'
       - 'tests/**'
+
 jobs:
   test:
     runs-on: ubuntu-latest
