@@ -5,19 +5,7 @@ on:
     branches:
       - dev
       - main
-    paths:
-      - 'config/**'
-      - 'database/**'
-      - 'resources/**'
-      - 'src/**'
-      - 'tests/**'
   pull_request:
-    paths:
-      - 'config/**'
-      - 'database/**'
-      - 'resources/**'
-      - 'src/**'
-      - 'tests/**'
 
 jobs:
   test:
