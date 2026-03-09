@@ -11,10 +11,14 @@ class LoginTest extends TestCase
 {
     public function test_login_and_check_password_rehash()
     {
-        $user = User::first();
+        $user = User::factory()->create([
+            'email' => 'test@test.com',
+            'password' => Hash::make('123456'),
+        ]);
 
         dump('Before login hash:', $user->password);
         dump('Before hash info:', Hash::info($user->password));
+        dump(User::count());
 
         dump('bcrypt rounds config:', config('hashing.bcrypt.rounds'));
         dump('needsRehash:', Hash::needsRehash($user->password));
@@ -28,6 +32,7 @@ class LoginTest extends TestCase
 
         dump('After login hash:', $user->password);
         dump('After hash info:', Hash::info($user->password));
+        dump(User::count());
 
         $this->assertTrue(true);
     }
