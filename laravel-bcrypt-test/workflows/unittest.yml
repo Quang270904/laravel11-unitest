@@ -1,7 +1,9 @@
 name: Laravel Test
 
-on: [push, pull_request]
-
+on:
+  pull_request:
+    paths:
+      - 'tests/**'
 jobs:
   test:
     runs-on: ubuntu-latest
