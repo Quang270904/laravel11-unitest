@@ -24,7 +24,7 @@ class LoginTest extends TestCase
             'password' => '123456'
         ]);
 
-        // $user->refresh();
+        $user->refresh();
 
         dump('After login hash:', $user->password);
         dump('After hash info:', Hash::info($user->password));
