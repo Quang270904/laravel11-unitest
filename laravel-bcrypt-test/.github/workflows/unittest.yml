@@ -1,6 +1,16 @@
 name: phpunit
 
 on:
+  push:
+    branches:
+      - dev
+      - main
+    paths:
+      - 'config/**'
+      - 'database/**'
+      - 'resources/**'
+      - 'src/**'
+      - 'tests/**'
   pull_request:
     paths:
       - 'config/**'
