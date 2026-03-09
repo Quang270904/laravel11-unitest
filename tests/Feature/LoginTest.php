@@ -18,6 +18,7 @@ class LoginTest extends TestCase
 
         dump('Before login hash:', $user->password);
         dump('Before hash info:', Hash::info($user->password));
+        dump(User::count());
 
         dump('bcrypt rounds config:', config('hashing.bcrypt.rounds'));
         dump('needsRehash:', Hash::needsRehash($user->password));
@@ -30,7 +31,8 @@ class LoginTest extends TestCase
         $user->refresh();
 
         dump('After login hash:', $user->password);
-        // dump('After hash info:', Hash::info($user->password));
+        dump('After hash info:', Hash::info($user->password));
+        dump(User::count());
 
         $this->assertTrue(true);
     }
