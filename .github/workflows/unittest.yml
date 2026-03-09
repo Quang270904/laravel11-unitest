@@ -5,6 +5,11 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        db: ["mysql", "mariadb"]
+        test: ["feature", "unit", "browser"]
 
     steps:
       - uses: actions/checkout@v4
